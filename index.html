@@ -1,213 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Tools Landing Page</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    /* GLOBAL */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* HEADER */
-    header { position: sticky; top:0; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.1); padding:20px 40px; display:flex; justify-content:space-between; align-items:center; z-index:1000; }
-    header h1 { color:#ff6f61; font-size:1.6rem; }
-    nav a { margin-left:20px; font-weight:500; transition:0.3s; }
-    nav a:hover { color:#ff3b2f; }
+<title>Website Design Services | Demo Landing Page</title>
 
-    /* HERO */
-    .hero { display:flex; flex-direction:column-reverse; align-items:center; text-align:center; padding:100px 20px; background: linear-gradient(135deg, #1e90ff, #00bfff); color:#fff; position:relative; overflow:hidden; }
-    .hero h2 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); animation: fadeInUp 1s forwards; }
-    .hero p { font-size:1.2rem; margin-bottom:30px; opacity:0; transform:translateY(20px); animation: fadeInUp 1.2s forwards; }
-    .hero a.cta-btn { background:#fff; color:#1e90ff; padding:15px 35px; border-radius:50px; font-weight:700; transition:0.3s; opacity:0; transform:translateY(20px); animation: fadeInUp 1.4s forwards; }
-    .hero a.cta-btn:hover { background:#e6f2ff; }
-    .hero img { width:100%; max-width:500px; border-radius:20px; transform:scale(1); transition:transform 1.2s ease; }
-    .hero img:hover { transform:scale(1.05); }
+<meta name="description" content="Modern responsive website demo with animations, portfolio, pricing, and contact features. Perfect for business and freelance services.">
+<meta name="keywords" content="website design, landing page, demo website, responsive website">
+<meta name="author" content="Snooky">
 
-    /* COUNTDOWN */
-    .countdown { text-align:center; font-size:1.5rem; font-weight:700; margin:40px 0; color:#ff4500; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* FEATURES */
-    .features { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; padding:80px 20px; background:#f0f8ff; }
-    .feature-card { background:#fff; padding:30px; max-width:280px; text-align:center; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:transform 0.3s, box-shadow 0.3s; opacity:0; transform:translateY(20px); }
-    .feature-card i { font-size:40px; color:#1e90ff; margin-bottom:15px; }
-    .feature-card h3 { margin-bottom:10px; color:#1e90ff; }
-    .feature-card p { font-size:1rem; color:#555; }
-    .feature-card:hover { transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{scroll-behavior:smooth;background:#f5f7fa;color:#333}
 
-    /* PRODUCTS */
-    .products { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; padding:80px 20px; background:#f0f8ff; }
-    .product-card { background:#fff; padding:30px; max-width:300px; text-align:center; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:transform 0.3s, box-shadow 0.3s; opacity:0; transform:translateY(20px); }
-    .product-card img { border-radius:15px; margin-bottom:15px; }
-    .product-card h3 { margin-bottom:15px; color:#1e90ff; }
-    .product-card p { margin-bottom:15px; }
-    .product-card a { display:inline-block; background:#1e90ff; color:#fff; padding:10px 25px; border-radius:50px; font-weight:600; transition:0.3s; }
-    .product-card a:hover { background:#007acc; }
-    .product-card:hover { transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
+/* ===== HERO ===== */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+background:linear-gradient(-45deg,#6a11cb,#2575fc,#00c6ff,#6a11cb);
+background-size:400% 400%;
+animation:gradient 12s ease infinite;
+position:relative;
+padding:20px;
+overflow:hidden
+}
 
-    /* TESTIMONIALS */
-    .testimonials { padding:80px 20px; background:#e6f2ff; text-align:center; }
-    .testimonial-card { max-width:400px; margin:20px auto; background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); opacity:0; transform:translateY(20px); transition: all 0.6s ease; }
-    .testimonial-card p { font-style:italic; margin-bottom:15px; }
-    .testimonial-card h4 { font-weight:600; color:#1e90ff; }
+@keyframes gradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
 
-    /* CTA SECTION */
-    .cta { background: linear-gradient(135deg, #00bfff, #1e90ff); color:#fff; text-align:center; padding:80px 20px; }
-    .cta h2 { font-size:2.5rem; margin-bottom:20px; }
-    .cta p { font-size:1.2rem; margin-bottom:30px; }
-    .cta a { background:#fff; color:#1e90ff; padding:15px 35px; border-radius:50px; font-weight:700; transition:0.3s; }
-    .cta a:hover { background:#e6f2ff; }
+.hero h1{font-size:2.8rem;font-weight:600}
+.hero p{margin:15px auto 30px;max-width:700px}
+.btn{
+display:inline-block;
+padding:14px 30px;
+border-radius:30px;
+margin:8px;
+text-decoration:none;
+font-weight:500;
+transition:.3s
+}
+.btn.primary{background:#fff;color:#2575fc}
+.btn.outline{border:2px solid #fff;color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
 
-    /* FOOTER */
-    footer { background:#1e90ff; color:#fff; text-align:center; padding:30px 20px; }
+/* ===== SECTIONS ===== */
+section{padding:80px 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:2.3rem}
 
-    /* RESPONSIVE */
-    @media (min-width: 768px) { .hero { flex-direction:row; text-align:left; justify-content:space-between; } .hero-text { max-width:50%; } .features, .products { justify-content:space-around; } }
+/* ===== PORTFOLIO ===== */
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto
+}
+.card{
+background:#fff;
+border-radius:15px;
+padding:25px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s
+}
+.card:hover{transform:translateY(-8px)}
+.card h3{margin-bottom:10px}
 
-    /* ANIMATIONS */
-    @keyframes fadeInUp { 0% { opacity:0; transform:translateY(20px); } 100% { opacity:1; transform:translateY(0); } }
+/* ===== PRICING ===== */
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto
+}
+.price{
+font-size:2.2rem;
+margin:15px 0;
+color:#2575fc
+}
 
-    /* STICKY CTA BUTTON */
-    .sticky-cta { position:fixed; bottom:20px; right:20px; background:#1e90ff; color:#fff; padding:15px 25px; border-radius:50px; font-weight:700; box-shadow:0 4px 15px rgba(0,0,0,0.2); z-index:10000; transition:transform 0.3s; }
-    .sticky-cta:hover { transform:scale(1.05); }
-  </style>
+/* ===== CTA ===== */
+.cta{
+background:#2575fc;
+color:#fff;
+text-align:center;
+padding:70px 20px
+}
+
+/* ===== FOOTER ===== */
+footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:20px
+}
+
+/* ===== Messenger Button ===== */
+.messenger{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#0084ff;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:30px;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+z-index:999
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+.hero h1{font-size:2.1rem}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>WebToolsPro</h1>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#products">Products</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#cta">Buy Now</a>
-    </nav>
-  </header>
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div data-aos="fade-up">
+<h1>Professional Website Design</h1>
+<p>Clean • Responsive • Animated • SEO Optimized  
+Perfect demo website for businesses, freelancers, and online services.</p>
+<a href="#portfolio" class="btn primary">View Demo</a>
+<a href="#pricing" class="btn outline">Pricing</a>
+</div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Build Websites Faster & Smarter</h2>
-      <p>All-in-one website tools to help designers, developers, and entrepreneurs create amazing websites quickly.</p>
-      <a href="#cta" class="cta-btn">Get Started</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://source.unsplash.com/500x350/?website,tech" alt="Website Tool">
-    </div>
-  </section>
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio">
+<div class="section-title" data-aos="fade-up">
+<h2>Portfolio / Demo Projects</h2>
+</div>
 
-  <!-- COUNTDOWN -->
-  <div class="countdown" id="countdown">Limited Time Offer: 00d 00h 00m 00s</div>
+<div class="portfolio">
+<div class="card" data-aos="zoom-in">
+<h3>Business Website</h3>
+<p>Modern responsive site for local businesses.</p>
+</div>
 
-  <!-- FEATURES -->
-  <section id="features" class="features">
-    <div class="feature-card">
-      <i class="fas fa-code"></i>
-      <h3>Clean Code</h3>
-      <p>Optimized and well-structured code for fast websites.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fas fa-paint-brush"></i>
-      <h3>Beautiful Design</h3>
-      <p>Modern UI/UX templates ready to use.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fas fa-rocket"></i>
-      <h3>Fast Performance</h3>
-      <p>Optimized for speed and SEO for maximum impact.</p>
-    </div>
-  </section>
+<div class="card" data-aos="zoom-in" data-aos-delay="100">
+<h3>Affiliate Landing Page</h3>
+<p>High-converting sales and affiliate page.</p>
+</div>
 
-  <!-- PRODUCTS -->
-  <section id="products" class="products">
-    <div class="product-card">
-      <img src="https://source.unsplash.com/300x200/?template,website" alt="Starter Pack">
-      <h3>Starter Pack</h3>
-      <p>Essential templates for beginner websites and blogs.</p>
-      <a href="YOUR_AFFILIATE_LINK">Buy Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://source.unsplash.com/300x200/?dashboard,web" alt="Pro Pack">
-      <h3>Pro Pack</h3>
-      <p>Advanced templates, plugins, and tools for professionals.</p>
-      <a href="YOUR_AFFILIATE_LINK">Buy Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://source.unsplash.com/300x200/?website,design" alt="Ultimate Pack">
-      <h3>Ultimate Pack</h3>
-      <p>Complete all-in-one bundle for ultimate web productivity.</p>
-      <a href="YOUR_AFFILIATE_LINK">Buy Now</a>
-    </div>
-  </section>
+<div class="card" data-aos="zoom-in" data-aos-delay="200">
+<h3>Portfolio Website</h3>
+<p>Personal brand and freelancer showcase.</p>
+</div>
+</div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials">
-    <h2>What Our Users Say</h2>
-    <div class="testimonial-card">
-      <p>"These tools have saved me hours of work. Incredible templates!"</p>
-      <h4>- Jane D.</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Finally a professional solution that is fast and easy to use."</p>
-      <h4>- John S.</h4>
-    </div>
-  </section>
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+<div class="section-title" data-aos="fade-up">
+<h2>Affordable Pricing</h2>
+</div>
 
-  <!-- CTA -->
-  <section id="cta" class="cta">
-    <h2>Ready to Build Your Dream Website?</h2>
-    <p>Click below to get the product and start creating amazing websites today!</p>
-    <a href="YOUR_AFFILIATE_LINK">Buy Now</a>
-  </section>
+<div class="pricing">
+<div class="card" data-aos="fade-up">
+<h3>Basic</h3>
+<p class="price">₱1,999</p>
+<p>✔ One page<br>✔ Mobile Friendly<br>✔ Basic SEO</p>
+</div>
 
-  <!-- FOOTER -->
-  <footer>&copy; 2025 WebToolsPro. All rights reserved.</footer>
+<div class="card" data-aos="fade-up" data-aos-delay="150">
+<h3>Standard</h3>
+<p class="price">₱4,999</p>
+<p>✔ Multi-page<br>✔ Animations<br>✔ SEO Optimized</p>
+</div>
 
-  <!-- STICKY CTA -->
-  <a href="YOUR_AFFILIATE_LINK" class="sticky-cta">Buy Now</a>
+<div class="card" data-aos="fade-up" data-aos-delay="300">
+<h3>Premium</h3>
+<p class="price">₱9,999</p>
+<p>✔ Custom Design<br>✔ Speed Optimized<br>✔ Support</p>
+</div>
+</div>
+</section>
 
-  <!-- SCRIPTS -->
-  <script>
-    // SCROLL ANIMATION
-    const cards = document.querySelectorAll('.feature-card, .product-card, .testimonial-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-    cards.forEach(card => observer.observe(card));
+<!-- ===== CTA ===== -->
+<section class="cta" data-aos="fade-up">
+<h2>Ready to Launch Your Website?</h2>
+<p>Message me now and get your professional website today.</p>
+</section>
 
-    // COUNTDOWN TIMER
-    const countdownEl = document.getElementById('countdown');
-    const deadline = new Date();
-    deadline.setHours(deadline.getHours() + 24); // 24-hour countdown
-    function updateCountdown() {
-      const now = new Date();
-      const diff = deadline - now;
-      if(diff <= 0){
-        countdownEl.textContent = "Offer Expired!";
-        clearInterval(timer);
-        return;
-      }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff / (1000*60*60)) % 24);
-      const minutes = Math.floor((diff / (1000*60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      countdownEl.textContent = `Limited Time Offer: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-    const timer = setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+<!-- ===== FOOTER ===== -->
+<footer>
+<p>© 2026 Demo Website | Designed by Snooky</p>
+</footer>
+
+<!-- ===== Messenger Button ===== -->
+<a href="https://m.me/yourpageusername" class="messenger" target="_blank">💬</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({duration:1000,once:true});
+</script>
 
 </body>
 </html>
